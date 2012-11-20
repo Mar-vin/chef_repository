@@ -7,13 +7,13 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include_recipe "build-essentials"
+
 user 'webapp' do
   password '$1$xkGyj2uw$E3bLRTgMTJo5acqqDn7tW/'
   home '/home/webapp'
   supports :manage_home => true
 end
-
-package 'putty'
 
 gem_package 'passenger' do
   action :install
