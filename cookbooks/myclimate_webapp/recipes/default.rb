@@ -17,4 +17,4 @@ end
 
 gem_package 'passenger'
 
-execute 'passenger-install-apache2-module'
+execute 'passenger-install-apache2-module -a'
