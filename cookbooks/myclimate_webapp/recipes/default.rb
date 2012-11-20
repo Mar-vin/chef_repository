@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "build-essentials"
+include_recipe 'build-essential'
 
 user 'webapp' do
   password '$1$xkGyj2uw$E3bLRTgMTJo5acqqDn7tW/'
