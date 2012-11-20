@@ -15,6 +15,6 @@ user 'webapp' do
   supports :manage_home => true
 end
 
-gem_package 'passenger' do
-  action :install
-end
+gem_package 'passenger'
+
+execute 'passenger-install-apache2-module'
