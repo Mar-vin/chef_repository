@@ -13,6 +13,8 @@ user 'webapp' do
   supports :manage_home => true
 end
 
+package 'putty'
+
 gem_package 'passenger' do
   action :install
 end
