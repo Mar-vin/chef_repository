@@ -7,7 +7,15 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe 'build-essential'
+package 'git-core'
+package 'libxslt-dev' # nokogiri depends on this
+package 'libxml2-dev' # nokogiri depends on this
+package 'libqt4-dev'  # capybara-webkit depends on this (debian specific fix)
+# package 'postgresql'
+
+
+
+include_recipe 'passenger_apache2::mod_rails'
 
 user 'webapp' do
   password '$1$xkGyj2uw$E3bLRTgMTJo5acqqDn7tW/'
@@ -15,6 +23,13 @@ user 'webapp' do
   supports :manage_home => true
 end
 
-gem_package 'passenger'
+web_app 'webapp' do
+  # cookbook 'passenger_apache2' to use the default apache2 vhost template
+  # server_name "myproj.#{node[:domain]}"
+  # server_aliases [ 'myproj', node[:hostname] ]
+  docroot '/home/webapp/current/public'
+  rails_env 'production'
+end
 
-execute 'passenger-install-apache2-module -a'
+#git checkout Code
+
