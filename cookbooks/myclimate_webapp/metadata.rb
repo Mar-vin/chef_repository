@@ -8,3 +8,4 @@ version          "0.1.0"
 depends 'build-essential'
 depends 'passenger_apache2'
 depends 'apache2'
+depends 'postgresql'
